@@ -1,0 +1,42 @@
+<table>
+    <tr>
+        <td>Orrders total</td>
+        <td>Orderse delivered</td>
+        <td>Orders in process</td>
+        <td>Orders not delivered</td>
+    </tr>
+    <tr>
+        <td>{{ orders_count }}</td>
+        <td>{{ orders_delivered }}</td>
+        <td>{{ orders_in_process }}</td>
+        <td>{{ orders_not_delivered }}</td>
+    </tr>
+
+
+
+</table>
+
+
+
+
+<table>
+<tr>
+    <td>Product Image</td>
+    <td>Product Name</td>
+    <td>Date</td>
+    <td>Status</td>
+    <td>Customer</td>
+</tr>
+
+
+{% for order in orders %}
+    <tr>
+        <td><img src="{{order.product.image.url}}" width="50" height="50" ></td>
+        <td>{{ order.product.name }}</td>
+        <td>{{ order.date_created}}</td>
+        <td>{{ order.status }}</td>
+        <td>{{ order.customer }}</td>
+    </tr>
+
+{% endfor %}
+</table>

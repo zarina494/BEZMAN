@@ -16,14 +16,14 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from .views import *
 
+
 urlpatterns = [
-    path('products/',product_list,name='products'),
-    path('orders/',orderlist,name='orders'),
-    path ('order-create/<int:product_id>/',orderCreate,name='order-create'),
-    path ('order-update/<int:order_id>/',orderUpdate,name='order-update')
-
+    path('customers/',customerList,name='customers'),
+    path('customers/<int:customer_id>/',get_customer,name='customers'),
+    path('registration/',registration),
+    path('login/',auth,name='login'),
+    path('logout/',logout_page,name='logout'),
 ]
-
