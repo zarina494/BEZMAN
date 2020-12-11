@@ -1,23 +1,35 @@
+{% extends 'supershop/base.html' %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.css">
+    <Link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
 <nav>
-    Hellow, {{ request.user }}
-<button><a href="{% url 'logout' %}">OUT</a> </button>
+
+
 </nav>
 <form action="" method="GET">
     {{ filter.form }}
     <input type="submit" name="Confirm">
 </form>
-    <table>
-<tr>
-    <td>Image</td>
-    <td>Name</td>
-    <td>Gender</td>
-    <td>Model</td>
-    <td>Size</td>
-    <td>Manufactore</td>
-    <td>Price</td>
-    <td>Buy</td>
 
-</tr>
+ <table class="table table-dark table=dark">
+  <thead>
+    <tr>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Model</th>
+      <th scope="col">Size</th>
+      <th scope="col">Manufacture</th>
+      <th scope="col">Price</th>
+      <th scope="col">Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr> >
+
 
 {% for product in products %}
 <tr>
@@ -34,3 +46,4 @@
 {% endfor %}
 
 </table>
+{% endblock %}

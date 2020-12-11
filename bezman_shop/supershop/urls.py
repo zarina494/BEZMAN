@@ -23,7 +23,8 @@ urlpatterns = [
     path('products/',product_list,name='products'),
     path('orders/',orderlist,name='orders'),
     path ('order-create/<int:product_id>/',orderCreate,name='order-create'),
-    path ('order-update/<int:order_id>/',orderUpdate,name='order-update')
-
+    path ('order-update/<int:order_id>/',orderUpdate,name='order-update'),
+    path('order-delete/<int:order_id>/',orderDelete,name='order-delete'),
+    path('order-list/<int:order_id>/',orderDelete,name='order-list'),
 ]
 
