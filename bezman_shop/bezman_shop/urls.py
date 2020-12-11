@@ -17,11 +17,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from supershop.views import product_list
 
 urlpatterns = [
     path('jet',include('jet.urls','jet')),
     path('jet/dashboard',include('jet.dashboard.urls','jet-dashboard')),
     path('admin/', admin.site.urls),
+    path('',product_list,name='products'),
     path('shop/',include('supershop.urls')),
     path('accounts/',include('accounts.urls'))
 ]+ static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
