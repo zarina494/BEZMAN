@@ -33,4 +33,6 @@ urlpatterns = [
     path('login/',auth,name='login'),
     path('logout/',logout_page,name='logout'),
     path('customer_list/<int:customer_id>/',get_customer,name='customer_list'),
+    path('profile/',userProfile,name='profile'),
+
 ]
