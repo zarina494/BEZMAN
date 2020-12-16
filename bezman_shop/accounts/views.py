@@ -57,14 +57,13 @@ def logout_page(request):
     logout(request)
     return redirect('login')
 
-@login_required(login_url=['login'])
+@login_required(login_url=['login',])
 def userProfile(request):
     user = request.user.customer
     form = UserProfile(instance=user)
     if request.method == 'POST':
-        form = UserProfile(request.POST,instance=user)
-        if form.is_valid():
-            form.save()
+        form = UserProfile(request.POST,request.FILES,instance=user)
+        form.save()
 
     context = {'form':form}
     return render(request,'accounts_customer/accounts.html',context)
