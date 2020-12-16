@@ -19,26 +19,30 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
 <div class="container emp-profile">
-            <form method="Post">
-                 {% csrf_token %}
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                            <img src="{{ request.user.customer.image.url }}" alt="Admin"/>
                             <div class="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
+                                {{ form.image }}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="profile-head">
                                     <h5>
-                                        Zarina Sadykova
+                                        {{ form.fullname }}
                                     </h5>
                                     <h6>
-                                        Web Developer
+                                         Web Developer
                                     </h6>
                                     <p class="proile-rating">RANKINGS : <span>8/10</span></p>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -52,7 +56,7 @@
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                        <input type="submit" name="Submit" value="Edit Profile"/>
                     </div>
                 </div>
                 <div class="row">
@@ -78,7 +82,7 @@
                                                 <label>User Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                {{ form.username }}
+                                                {{ user.id }}
                                             </div>
                                         </div>
                                         <div class="row">
@@ -86,15 +90,15 @@
                                                 <label>Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                {{ form.full_name }}
+                                               {{ form.full_name }}
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label>Email</label>
+                                                <label>Address</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
+                                                {{ form.address }}
                                             </div>
                                         </div>
                                         <div class="row">
@@ -110,7 +114,7 @@
                                                 <label>Profession</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Web Developer and Designer</p>
+                                                <p>Web Developer </p>
                                             </div>
                                         </div>
                             </div>
@@ -128,7 +132,7 @@
                                                 <label>Hourly Rate</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>10$/hr</p>
+                                                <p>1K$/hr</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -158,7 +162,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label>Your Bio</label><br/>
-                                        <a href="{% url 'profile' %}" class="submit-link submit">Update</a>
+                                        <p>Your detail description</p>
                                     </div>
                                 </div>
                             </div>
